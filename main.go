@@ -1,6 +1,7 @@
 // Copyright 2023 The firestore Authors
 // SPDX-License-Identifier: BSD-3-Clause
 
+// Command firestore is the command-line tool of Google Cloud Firestore.
 package main
 
 import (
