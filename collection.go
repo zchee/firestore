@@ -36,7 +36,7 @@ func (coll *Collection) NewCommand() *cobra.Command {
 		Short:   "Describe the collection.",
 		Long:    "Describe the collection.",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			if err := checkArgs(cmd.Name(), maxArgs, 1, args...); err != nil {
+			if err := checkArgs(cmd.Name(), exactArgs, 1, args...); err != nil {
 				return err
 			}
 
