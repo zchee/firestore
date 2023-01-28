@@ -40,6 +40,7 @@ func NewCommand(ctx context.Context, args []string) (*cobra.Command, error) {
 	cmd := &cobra.Command{
 		Use:     appName,
 		Short:   "Google Cloud Firestore command-line tool.",
+		Long:    "Google Cloud Firestore command-line tool.",
 		Version: "v0.0.1",
 		PreRunE: func(cmd *cobra.Command, args []string) error {
 			return cli.NewClient(cmd.Context())
