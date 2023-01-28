@@ -46,7 +46,7 @@ func (colls *Collections) NewCommand() *cobra.Command {
 }
 
 // Run implements Command.
-func (colls *Collection) runCollections(ctx context.Context, args []string) error {
+func (colls *Collections) Run(ctx context.Context, args []string) error {
 	// default is root level collections
 	iter := colls.fs.Collections(ctx)
 
