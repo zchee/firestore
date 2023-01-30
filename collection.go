@@ -87,9 +87,11 @@ func (coll *Collection) Run(ctx context.Context, args []string) error {
 	}
 
 	if val := coll.search; val != "" {
-		if err := coll.searchFields(val, datas); err != nil {
+		fixed, err := coll.searchFields(val, datas)
+		if err != nil {
 			return err
 		}
+		datas = fixed
 	}
 
 	enc := json.NewEncoder(coll.Out)
@@ -112,10 +114,10 @@ type docField struct {
 	index int
 }
 
-func (coll *Collection) searchFields(val string, datas []map[string]interface{}) error {
+func (coll *Collection) searchFields(val string, datas []map[string]interface{}) ([]map[string]interface{}, error) {
 	ss := strings.SplitN(val, ":", 2)
 	if len(ss) != 2 {
-		return fmt.Errorf("invalid --search flag value: %s", val)
+		return nil, fmt.Errorf("invalid --search flag value: %s", val)
 	}
 
 	k, v := ss[0], ss[1]
@@ -146,5 +148,5 @@ func (coll *Collection) searchFields(val string, datas []map[string]interface{})
 		}
 	}
 
-	return nil
+	return datas, nil
 }
