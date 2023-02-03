@@ -1,18 +1,18 @@
 module github.com/zchee/firestore
 
-go 1.19
+go 1.20
 
 require (
 	cloud.google.com/go/firestore v1.9.0
 	github.com/goccy/go-json v0.10.0
 	github.com/spf13/cobra v1.6.1
-	google.golang.org/api v0.108.0
+	google.golang.org/api v0.109.0
 	google.golang.org/grpc v1.52.3
 )
 
 require (
 	cloud.google.com/go v0.109.0 // indirect
-	cloud.google.com/go/compute v1.15.1 // indirect
+	cloud.google.com/go/compute v1.18.0 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	cloud.google.com/go/longrunning v0.4.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -31,6 +31,6 @@ require (
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20230125152338-dcaf20b6aeaa // indirect
+	google.golang.org/genproto v0.0.0-20230202175211-008b39050e57 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 )
