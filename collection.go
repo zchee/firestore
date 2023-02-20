@@ -53,6 +53,10 @@ func (coll *Collection) NewCommand() *cobra.Command {
 // Run implements Command.
 func (coll *Collection) Run(ctx context.Context, args []string) error {
 	collPath := args[0]
+	if strings.HasSuffix(collPath, "/") {
+		return fmt.Errorf("invalid collection path: %s", collPath)
+	}
+
 	ref := coll.fs.Collection(collPath)
 	iter := ref.Documents(ctx)
 

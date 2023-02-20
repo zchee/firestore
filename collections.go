@@ -54,6 +54,9 @@ func (colls *Collections) Run(ctx context.Context, args []string) error {
 	if len(args) == 1 {
 		path := args[0]
 		collPath, docPath, ok := strings.Cut(path, "/")
+		if strings.HasSuffix(docPath, "/") {
+			return fmt.Errorf("invalid path: %s", path)
+		}
 		if ok {
 			iter = colls.fs.Collection(collPath).Doc(docPath).Collections(ctx)
 		}
