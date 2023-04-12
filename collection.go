@@ -87,7 +87,7 @@ func (coll *Collection) Run(ctx context.Context, args []string) error {
 	}
 
 	if len(datas) == 0 {
-		return fmt.Errorf("not found %s collection", collPath)
+		return nil
 	}
 
 	if val := coll.search; val != "" {
@@ -143,13 +143,11 @@ func (coll *Collection) searchFields(val string, datas []map[string]interface{})
 		}
 	}
 
-	if len(includes) > 0 {
-		tmpData := make([]map[string]interface{}, len(datas))
-		copy(tmpData, datas)
-		datas = datas[:0]
-		for idx := range includes {
-			datas = append(datas, tmpData[idx])
-		}
+	tmpData := make([]map[string]interface{}, len(datas))
+	copy(tmpData, datas)
+	datas = []map[string]interface{}{}
+	for idx := range includes {
+		datas = append(datas, tmpData[idx])
 	}
 
 	return datas, nil
